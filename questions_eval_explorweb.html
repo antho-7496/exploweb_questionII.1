@@ -2,7 +2,27 @@
 <html>
 <head>
 <title>3 concepts principaux du cours</title>
+  <script>
+    var mesphotos = ["https://i1.wp.com/www.freaklore.com/wp-content/uploads/2016/05/the-deep-web.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/MVC_Diagram_(Model-View-Controller).svg/609px-MVC_Diagram_(Model-View-Controller).svg.png" , "http://vdoit.in/wp-content/uploads/2016/09/vDoIT_html-css-logo1.jpg" ];
+    var image_en_cours = 0;
+    function suivante () {
+      image_en_cours = image_en_cours + 1;
+      if (image_en_cours == mesphotos.length) {
+        image_en_cours = 0;
+      }
+      document.getElementById('ecran').src = mesphotos[image_en_cours];
+    }
+    function precedente () {
+      image_en_cours = image_en_cours - 1;
+      if (image_en_cours < 0) {
+        image_en_cours = mesphotos.length-1;
+      }
+      document.getElementById('ecran').src =mesphotos[image_en_cours];
+    }
+  </script>
+  
 </head>
+  
 <body>
 
 <h1>3 concepts principaux du cours exploration sur le web</h1>
@@ -33,7 +53,12 @@ L'idée importante dans ce design pattern est de séparer distinctement les tâc
 <li>CSS est un langage de règles de style utilisé pour appliquer un style au contenu HTML. Par exemple : en modifiant la couleur d’arrière-plan ou les polices, ou en disposant le contenu en plusieurs colonnes. </li></br>
 <li>JavaScript est un langage de programmation qui permet de créer du contenu mis à jour de façon dynamique, de contrôler le contenu multimédia ou d'animer des images.</li> 
 </ul></p>
+ <div class="illustration">
+  <img id="ecran" src="https://i1.wp.com/www.freaklore.com/wp-content/uploads/2016/05/the-deep-web.jpg" alt="iceberg" height="200" />
+  </div>
 
+  <button onclick="precedente();">image précédente</button>
+  <button onclick="suivante();">image suivante</button>
 
 </body>
 </html>
